@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Rock-Paper-Scissors</title>
+    </head>
+    <body>
+        <script>
+   let playerScore = 0;
+    let computerScore = 0;  
+
+  function userPlay(){
+userChoice = prompt("Choose from rock, paper or scissors")
+  userChoice = userChoice.toLowerCase();  
+  if (userChoice === 'rock' || userChoice==='paper' || userChoice ==='scissors') {
+    return userChoice;
+  } else {
+    console.log('not a valid choice');
+  }
+};
+
+function computerPlay() {
+let computerChoice = Math.floor(Math.random()*3)
+if(computerChoice == 1){
+return "rock"
+} else if(computerChoice == 2){
+return "paper"
+} else {
+return "scissors"
+}
+}
+
+function playRound(playerSelection,computerSelection) {
+  if (playerSelection == "rock" && computerSelection == "rock") {
+        return "draw";
+      } else if (playerSelection == "paper" && computerSelection == "paper") {
+        return "draw";
+      } else if (playerSelection == "scissors" && computerSelection == "scissors") {
+        return "draw";
+      } else if (playerSelection == "rock" && computerSelection == "scissors") {
+        return playerScore++;
+      } else if (playerSelection == "scissors" && computerSelection == "paper") {
+        return playerScore++;
+      } else if (playerSelection == "paper" && computerSelection == "rock") {
+        return playerScore++;
+      } else if (playerSelection == "scissors" && computerSelection == "rock") {
+        return computerScore++;
+      } else if (playerSelection == "paper" && computerSelection == "scissors") {
+        return computerScore++;
+      } else (playerSelection == "rock" && computerSelection == "paper") 
+        return computerScore++;
+    };
+
+function game() {
+let score;
+ for (let score= 0; score < 5; score++) {
+        
+    playRound(userPlay(),computerPlay());
+    console.log("Your score is : " + playerScore );
+    console.log("Computer score is : " + computerScore );
+ }
+      for (let i=0; i < 5; i++) {
+        if (i <4) continue;
+        if (playerScore > computerScore) {
+        console.log("Game Over! You won! " + playerScore + " to " + computerScore);
+      } else if (playerScore < computerScore) {
+        console.log("Game Over! You lost! " + playerScore + " to " + computerScore);
+      } else 
+        console.log("Game Over! It's a draw! " + playerScore + " to " + computerScore);
+        console.log("Game Over! Please refresh page!");
+      }
+};
+game();
+    
+        </script>
+    </body>
+</html>
